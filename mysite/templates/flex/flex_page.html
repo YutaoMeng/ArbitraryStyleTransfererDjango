@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block content %}
+<style>
+  .flex_block:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+</style>
+<br>
+<center><h1></h1></center>
+
+  <div>
+      {{ self.subtitle }}
+  </div>
+
+<div class="container">
+<br>
+<br>
+  <div style="display: flex;">
+    {% for block in page.content %}
+      <div class="flex_block">
+        {% include_block block %}
+      </div>
+    {% endfor %}
+  </div>
+  
+</div>
+
+{% endblock %}
